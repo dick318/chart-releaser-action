@@ -268,6 +268,7 @@ package_chart() {
 }
 
 release_charts() {
+    echo "$repo"
     local args=(-o "$owner" -r "$repo" -c "$(git rev-parse HEAD)")
     if [[ -n "$config" ]]; then
         args+=(--config "$config")
@@ -278,6 +279,7 @@ release_charts() {
 }
 
 update_index() {
+    echo "$repo"
     local args=(-o "$owner" -r "$repo" -c "$charts_repo_url" --push)
     if [[ -n "$config" ]]; then
         args+=(--config "$config")
